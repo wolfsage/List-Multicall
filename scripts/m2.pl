@@ -28,6 +28,11 @@ $e1 = gettimeofday;
 
 printf("Multicall: %.02f\nFor: %.02f\n", $e1-$s1, $e2-$s2);
 
+# Verify all lists changed
+if ($list[1] ne 'two') {
+	die "List not modified! (got $list[0], expected 'two')\n";
+}
+
 for my $i (0..$#list) {
 	if ($list[$i] ne $list2[$i]) {
 		die "Bad: $list[$i], $list2[$i]\n";

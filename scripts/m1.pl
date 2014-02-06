@@ -36,6 +36,11 @@ printf("Multicall: %.02f\nForsub: %.02f\nFor: %.02f\n",
 	$e3-$s3
 );
 
+# Verify all lists changed
+if ($list[0] ne '-1') {
+	die "List not modified (Got $list[0], expected -1!\n";
+}
+
 for my $i (0..$#list) {
 	if ($list[$i] ne $list2[$i]) {
 		die "Bad: (l1/l2): $list[$i], $list2[$i]\n";
