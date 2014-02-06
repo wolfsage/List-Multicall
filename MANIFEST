@@ -1,0 +1,8 @@
+Changes
+Makefile.PL
+MANIFEST
+Multicall.xs
+ppport.h
+README
+t/List-Multicall.t
+lib/List/Multicall.pm
