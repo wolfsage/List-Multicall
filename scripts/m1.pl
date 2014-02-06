@@ -7,7 +7,7 @@ use Time::HiRes qw(gettimeofday);
 use List::Multicall qw(multicall);
 
 # 8GB of RAM recommended!!!
-my @list = (1..10_000_000);
+my @list =  (1..10_000_000);
 my @list2 = (1..10_000_000);
 my @list3 = (1..10_000_000);
 
@@ -28,7 +28,6 @@ $e2 = gettimeofday;
 $s3 = gettimeofday;
 $_ *= -1 for @list3;
 $e3 = gettimeofday;
-
 
 printf("Multicall: %.02f\nForsub: %.02f\nFor: %.02f\n",
 	$e1-$s1,

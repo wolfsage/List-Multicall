@@ -7,8 +7,9 @@ use Time::HiRes qw(gettimeofday);
 use List::Multicall qw(multicall);
 
 # 8GB of RAM recommended!!!
-my @list = (1..10_000_000);
+my @list =  (1..10_000_000);
 my @list2 = (1..10_000_000);
+my @list3 = (1..10_000_000);
 
 sub thing {
 	if (/2/) {
@@ -16,17 +17,30 @@ sub thing {
 	}
 }
 
-my ($s1, $s2, $e1, $e2);
-
-$s2 = gettimeofday;
-thing() for @list2;
-$e2 = gettimeofday;
+my ($s1, $s2, $s3, $e1, $e2, $e3);
 
 $s1 = gettimeofday;
 multicall(\&thing, @list);
 $e1 = gettimeofday;
 
-printf("Multicall: %.02f\nFor: %.02f\n", $e1-$s1, $e2-$s2);
+$s2 = gettimeofday;
+thing() for @list2;
+$e2 = gettimeofday;
+
+
+$s3 = gettimeofday;
+for (@list3) {
+	if (/2/) {
+		s/^2/two/;
+	}
+}
+$e3 = gettimeofday;
+
+printf("Multicall: %.02f\nForsub: %.02f\nFor: %0.02f\n",
+	$e1-$s1,
+	$e2-$s2,
+	$e3-$s3,
+);
 
 # Verify all lists changed
 if ($list[1] ne 'two') {

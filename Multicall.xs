@@ -47,6 +47,7 @@ PPCODE:
     }
     else
     {
+	PerlIO_printf(PerlIO_stderr(), "XSUB, not using multicall\n");
         int index;
         for(index = 1; index < items; index++) {
             dSP;
