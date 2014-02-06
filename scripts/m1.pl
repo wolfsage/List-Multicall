@@ -29,7 +29,7 @@ $s3 = gettimeofday;
 $_ *= -1 for @list3;
 $e3 = gettimeofday;
 
-printf("Multicall: %.02f\nForsub: %.02f\nFor: %.02f\n",
+printf("Multicall: %.02fs\nForsub: %.02fs\nFor: %.02fs\n",
 	$e1-$s1,
 	$e2-$s2,
 	$e3-$s3
